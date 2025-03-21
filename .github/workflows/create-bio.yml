@@ -29,11 +29,11 @@ jobs:
             const issueBody = context.payload.issue.body;
             
             // Extract fields using regex
-            const usernameMatch = issueBody.match(/Username:\s*([a-zA-Z0-9-]+)/);
-            const displayNameMatch = issueBody.match(/Display Name:\s*(.+?)(?=\n\n|\n###)/);
-            const pronounsMatch = issueBody.match(/Pronouns:\s*(.+?)(?=\n\n|\n###)/);
-            const bioMatch = issueBody.match(/Bio:\s*(.+?)(?=\n\n|\n###)/);
-            const linksMatch = issueBody.match(/Website Links:\s*([\s\S]+?)(?=\n\n|\n###|$)/);
+            const usernameMatch = issueBody.match(/Username\s*([a-zA-Z0-9-]+)/);
+            const displayNameMatch = issueBody.match(/Display Name\s*(.+?)(?=\n\n|\n###)/);
+            const pronounsMatch = issueBody.match(/Pronouns\s*(.+?)(?=\n\n|\n###)/);
+            const bioMatch = issueBody.match(/Bio\s*(.+?)(?=\n\n|\n###)/);
+            const linksMatch = issueBody.match(/Website Links\s*([\s\S]+?)(?=\n\n|\n###|$)/);
             
             // Set outputs
             const username = usernameMatch ? usernameMatch[1].trim() : '';
