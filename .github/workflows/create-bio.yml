@@ -49,6 +49,7 @@ jobs:
             core.exportVariable('LINKS', links);
             
             // Debug output
+            console.log(`Body: ${issueBody}`);
             console.log(`Username: ${username}`);
             console.log(`Display Name: ${displayName}`);
             console.log(`Pronouns: ${pronouns}`);
