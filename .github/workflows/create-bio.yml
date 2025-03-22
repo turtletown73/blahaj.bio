@@ -59,33 +59,33 @@ jobs:
       - name: Create bio file
         run: |
           mkdir -p src/content/bios
-          cat > src/content/bios/${{ env.USERNAME }}.md <<EOF
+          cat > src/content/bios/${{ USERNAME }}.md <<EOF
           ---
-          username: "${{ env.USERNAME }}"
-          display_name: "${{ env.DISPLAY_NAME }}"
-          pronouns: "${{ env.PRONOUNS }}"
+          username: "${{ USERNAME }}"
+          display_name: "${{ DISPLAY_NAME }}"
+          pronouns: "${{ PRONOUNS }}"
           bio: |
-            ${{ env.BIO }}
+            ${{ BIO }}
           links: |
-            ${{ env.LINKS }}
+            ${{ LINKS }}
           ---
           EOF
           # Debug output
-          cat src/content/bios/${{ env.USERNAME }}.md
+          cat src/content/bios/${{ USERNAME }}.md
 
       - name: Commit and push changes
         run: |
           git config --global user.name 'GitHub Actions Bot'
           git config --global user.email 'actions@github.com'
-          git add src/content/bios/${{ env.USERNAME }}.md
-          git commit -m "Add bio for @${{ env.USERNAME }}" || echo "No changes to commit"
+          git add src/content/bios/${{ USERNAME }}.md
+          git commit -m "Add bio for @${{ USERNAME }}" || echo "No changes to commit"
           git push
 
       - name: Close issue with comment
         uses: actions/github-script@v7
         with:
           script: |
-            const username = process.env.USERNAME;
+            const username = process.USERNAME;
             
             await github.rest.issues.createComment({
               owner: context.repo.owner,
